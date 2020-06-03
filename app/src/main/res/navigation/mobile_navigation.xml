@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_favourites">
+
+    <fragment
+        android:id="@+id/navigation_favourites"
+        android:name="com.topnews.ui.favourites.FavouritesFragment"
+        android:label="@string/title_favourites"
+        tools:layout="@layout/fragment_favourites" />
+
+    <fragment
+        android:id="@+id/navigation_top"
+        android:name="com.topnews.ui.top.TopFragment"
+        android:label="@string/title_top"
+        tools:layout="@layout/fragment_top" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.topnews.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>
