@@ -7,15 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_favourites"
-        android:name="com.topnews.ui.favourites.FavouritesFragment"
+        android:name="com.topnews.ui.bookmarks.BookmarksFragment"
         android:label="@string/title_favourites"
-        tools:layout="@layout/fragment_favourites" />
+        tools:layout="@layout/fragment_top">
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_top"
-        android:name="com.topnews.ui.top.TopFragment"
+        android:name="com.topnews.ui.favourites.TopFragment"
         android:label="@string/title_top"
-        tools:layout="@layout/fragment_top" />
+        tools:layout="@layout/fragment_bookmarks">
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"

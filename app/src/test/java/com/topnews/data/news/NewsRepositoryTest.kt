@@ -55,7 +55,7 @@ class NewsRepositoryTest {
         val call = successCall(news)
         Mockito.`when`(service.fetchFavouritesNews("ru", category = "business")).thenReturn(call)
 
-        val data = repository.fetchFavouriteNews(CountryType.RU, NewsCategory.BUSINESS)
+        val data = repository.fetchNews(CountryType.RU, NewsCategory.BUSINESS)
         Mockito.verify(dao).loadNews()
         Mockito.verifyNoMoreInteractions(service)
 

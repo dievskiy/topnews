@@ -9,14 +9,14 @@ object NewsTypeConverter {
 
     @TypeConverter
     @JvmStatic
-    fun fromCountryLangList(value: List<News.Article>): String {
+    fun fromNewsArticleList(value: List<News.Article>): String {
         val type = object : TypeToken<List<News.Article>>() {}.type
         return Gson().toJson(value, type)
     }
 
     @TypeConverter
     @JvmStatic
-    fun toCountryLangList(value: String): List<News.Article> {
+    fun toNewsArticleList(value: String): List<News.Article> {
         val type = object : TypeToken<List<News.Article>>() {}.type
         return Gson().fromJson(value, type)
     }
