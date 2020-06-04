@@ -15,4 +15,5 @@ interface NewsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(news: News)
+
 }

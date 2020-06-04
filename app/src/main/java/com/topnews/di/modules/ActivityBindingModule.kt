@@ -1,10 +1,11 @@
 package com.topnews.di.modules
 
+import com.topnews.data.bookmark.BookmarkRepositoryModule
 import com.topnews.data.news.NewsFetchRepositoryModule
-import com.topnews.data.user.UserRepository
 import com.topnews.data.user.UserRepositoryModule
 import com.topnews.di.other.ActivityScoped
-import com.topnews.ui.favourites.FavouritesModule
+import com.topnews.ui.bookmarks.BookmarksModule
+import com.topnews.ui.favourites.TopModule
 import com.topnews.ui.home.HomeActivity
 import com.topnews.ui.home.HomeActivityModule
 import com.topnews.ui.webview.WebActivity
@@ -16,7 +17,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBindingModule {
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = [WebModule::class])
+    @ContributesAndroidInjector(modules = [WebModule::class, BookmarkRepositoryModule::class])
     internal abstract fun webActivity(): WebActivity
 
     @ActivityScoped
@@ -25,12 +26,15 @@ abstract class ActivityBindingModule {
             // activity
             HomeActivityModule::class,
             // fragments
-            FavouritesModule::class,
+            BookmarksModule::class,
+            TopModule::class,
             // other
             NewsFetchRepositoryModule::class,
-            UserRepositoryModule::class
+            UserRepositoryModule::class,
+            BookmarkRepositoryModule::class
         ]
     )
     internal abstract fun homeActivity(): HomeActivity
 
 }
+

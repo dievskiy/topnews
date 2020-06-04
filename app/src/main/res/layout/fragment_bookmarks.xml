@@ -5,15 +5,31 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewmodel"
-            type="com.topnews.ui.favourites.TopViewModel" />
+            type="com.topnews.ui.bookmarks.BookmarkViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.favourites.TopFragment">
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/BaseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/no_bookmarks"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:visibility="@{viewmodel.articles.empty ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/articles_rv"
@@ -25,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/article_item" />
+            tools:listitem="@layout/bookmark_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

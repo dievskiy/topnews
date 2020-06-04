@@ -20,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
-            app:titleTextAppearance="@style/ToolbarTitle" />
+            app:title="Top News"
+            app:titleTextAppearance="@style/ToolbarTitle"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <view

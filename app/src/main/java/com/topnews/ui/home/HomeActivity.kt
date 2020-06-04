@@ -1,20 +1,13 @@
 package com.topnews.ui.home
 
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.topnews.R
-import com.topnews.ui.favourites.FavouritesFragment
-import com.topnews.ui.settings.SettingsFragment
-import com.topnews.ui.top.TopFragment
-//import com.topnews.ui.home.HomeActivityViewModel
 import com.topnews.utils.viewModelProvider
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -38,8 +31,8 @@ class HomeActivity : DaggerAppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_favourites,
                 R.id.navigation_top,
+                R.id.navigation_favourites,
                 R.id.navigation_settings
             )
         )

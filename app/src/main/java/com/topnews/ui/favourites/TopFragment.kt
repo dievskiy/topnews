@@ -2,7 +2,6 @@ package com.topnews.ui.favourites
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,23 +11,23 @@ import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.topnews.R
 import com.topnews.data.news.ArticleListAdapter
-import com.topnews.databinding.FragmentFavouritesBinding
+import com.topnews.databinding.FragmentTopBinding
 import com.topnews.ui.webview.WebActivity
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class FavouritesFragment : DaggerFragment() {
+class TopFragment : DaggerFragment() {
 
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 //    private lateinit var viewModel: FavouritesViewModel
 
-    private val viewModel: FavouritesViewModel by navGraphViewModels(R.id.mobile_navigation) {
+    private val viewModel: TopViewModel by navGraphViewModels(R.id.mobile_navigation) {
         viewModelFactory
     }
 
-    private lateinit var binding: FragmentFavouritesBinding
+    private lateinit var binding: FragmentTopBinding
 
     private lateinit var adapter: ArticleListAdapter
 
@@ -37,12 +36,12 @@ class FavouritesFragment : DaggerFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFavouritesBinding.inflate(inflater, container, false).apply {
+        binding = FragmentTopBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
         }
         adapter = ArticleListAdapter(requireContext()) { article ->
             val intent = Intent(requireContext(), WebActivity::class.java)
-            intent.putExtra(WebActivity.INTENT_EXTRAS_STRING_URL, article.url)
+            intent.putExtra(WebActivity.INTENT_EXTRAS_ARTICLE, article)
             startActivity(intent)
         }
         return binding.root
@@ -78,7 +77,6 @@ class FavouritesFragment : DaggerFragment() {
     private fun setUpObservers() {
         viewModel.news.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it.data?.articles)
-            binding.articlesRv.scrollTo(0, 0)
         })
     }
 

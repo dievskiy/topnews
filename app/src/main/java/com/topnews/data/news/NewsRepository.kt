@@ -1,5 +1,6 @@
 package com.topnews.data.news
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.topnews.AppExecutors
 import com.topnews.data.network.NetworkBoundResource
@@ -25,7 +26,7 @@ class NewsRepository @Inject constructor(
     private val repoListRateLimit =
         RateLimiter(60 * 8, TimeUnit.MINUTES) // 8 hours
 
-    fun fetchFavouriteNews(
+    fun fetchNews(
         countryType: CountryType,
         category: NewsCategory
     ): LiveData<Resource<News>> {
@@ -50,5 +51,6 @@ class NewsRepository @Inject constructor(
             }
         }.asLiveData()
     }
+
 
 }
