@@ -1,5 +1,7 @@
 package com.topnews.utils
 
+import android.content.Context
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
@@ -7,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 /**
- * For Actvities, allows declarations like
+ * For Activities, allows declarations like
  * ```
  * val myViewModel = viewModelProvider(myViewModelFactory)
  * ```
@@ -44,3 +46,7 @@ inline fun <reified VM : ViewModel> Fragment.parentViewModelProvider(
     provider: ViewModelProvider.Factory
 ) =
     ViewModelProviders.of(parentFragment!!, provider).get(VM::class.java)
+
+
+fun Context.toast(message: String) =
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

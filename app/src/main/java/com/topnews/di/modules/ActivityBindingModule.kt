@@ -8,6 +8,7 @@ import com.topnews.ui.bookmarks.BookmarksModule
 import com.topnews.ui.favourites.TopModule
 import com.topnews.ui.home.HomeActivity
 import com.topnews.ui.home.HomeActivityModule
+import com.topnews.ui.settings.SettingsModule
 import com.topnews.ui.webview.WebActivity
 import com.topnews.ui.webview.WebModule
 import dagger.Module
@@ -28,6 +29,7 @@ abstract class ActivityBindingModule {
             // fragments
             BookmarksModule::class,
             TopModule::class,
+            SettingsModule::class,
             // other
             NewsFetchRepositoryModule::class,
             UserRepositoryModule::class,
