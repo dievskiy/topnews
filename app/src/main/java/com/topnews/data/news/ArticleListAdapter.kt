@@ -55,10 +55,9 @@ class ArticleListAdapter constructor(
         holder.description.text = article.description
         holder.source.text = article.source?.name
         holder.card.setOnClickListener { articleClickCallback.invoke(article) }
-        Glide.with(context).load(article.urlToImage).apply(
-            RequestOptions().centerCrop().diskCacheStrategy(
-                DiskCacheStrategy.ALL
-            )
-        ).into(holder.image)
+        Glide.with(context)
+            .load(article.urlToImage)
+            .apply(RequestOptions().centerCrop().diskCacheStrategy(DiskCacheStrategy.NONE))
+            .into(holder.image)
     }
 }

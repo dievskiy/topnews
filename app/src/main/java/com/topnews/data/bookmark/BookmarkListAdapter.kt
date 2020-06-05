@@ -58,8 +58,10 @@ class BookmarkListAdapter constructor(
         holder.title.text = article.title?.let { NewsTitleFormatter.formatTitle(it) }
         holder.description.text = article.description
         holder.card.setOnClickListener { articleClickCallback.invoke(article) }
-        Glide.with(context).load(article.urlToImage).apply(
-            RequestOptions().fitCenter().transform(RoundedCorners(20))
-        ).into(holder.image)
+        Glide.with(context)
+            .load(article.urlToImage)
+            .apply(RequestOptions().fitCenter().transform(RoundedCorners(20)))
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(holder.image)
     }
 }
