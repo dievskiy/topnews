@@ -3,19 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_favourites">
+    app:startDestination="@+id/navigation_top">
 
     <fragment
-        android:id="@+id/navigation_favourites"
+        android:id="@+id/navigation_bookmarks"
         android:name="com.topnews.ui.bookmarks.BookmarksFragment"
         android:label="@string/title_favourites"
         tools:layout="@layout/fragment_top">
-
     </fragment>
 
     <fragment
         android:id="@+id/navigation_top"
-        android:name="com.topnews.ui.favourites.TopFragment"
+        android:name="com.topnews.ui.top.TopFragment"
         android:label="@string/title_top"
         tools:layout="@layout/fragment_bookmarks">
 

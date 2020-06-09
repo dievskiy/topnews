@@ -3,8 +3,6 @@ package com.topnews.ui.settings
 import androidx.lifecycle.ViewModel
 import com.topnews.di.other.ChildFragmentScoped
 import com.topnews.di.other.ViewModelKey
-import com.topnews.ui.favourites.TopFragment
-import com.topnews.ui.favourites.TopViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

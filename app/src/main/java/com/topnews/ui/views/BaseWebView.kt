@@ -1,5 +1,6 @@
 package com.topnews.ui.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.webkit.WebResourceRequest
@@ -9,6 +10,7 @@ import android.webkit.WebViewClient
 /**
  * WebView to display news' content
  */
+@SuppressLint("SetJavaScriptEnabled")
 class BaseWebView(context: Context, attrs: AttributeSet) : WebView(context, attrs) {
     init {
         webViewClient = object : WebViewClient() {

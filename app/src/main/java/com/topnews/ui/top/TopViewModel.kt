@@ -1,5 +1,6 @@
-package com.topnews.ui.favourites
+package com.topnews.ui.top
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.topnews.data.network.Resource
 import com.topnews.data.news.News
@@ -20,6 +21,7 @@ class TopViewModel @Inject constructor(
     private val _user: LiveData<User?> = userRepository.getUser()
 
     val news: LiveData<Resource<News>> = _user.switchMap { user ->
+        Log.d("123", "$user: ")
         // todo start intro
         newsRepository.fetchNews(
             countryType = user?.countryType ?: CountryType.US,

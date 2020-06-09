@@ -64,7 +64,6 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="@string/other"
-                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/main_guideline"
@@ -110,6 +109,17 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/main_guideline"
                     app:layout_constraintTop_toBottomOf="@+id/text_privacy_policy" />
+
+
+                <TextView
+                    android:id="@+id/text_about"
+                    style="@style/Settings.ActionText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/main_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/text_clear_cache" />
 
 
                 <androidx.constraintlayout.widget.Guideline

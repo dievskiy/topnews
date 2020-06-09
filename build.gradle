@@ -45,6 +45,8 @@ buildscript {
         atsl_junit = "1.1.1"
         atsl_rules = "1.2.0"
         atsl_runner = "1.2.0"
+        lottieVersion = "3.4.0"
+
     }
 
 

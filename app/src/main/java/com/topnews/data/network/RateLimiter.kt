@@ -35,15 +35,12 @@ class RateLimiter(timeout: Int, timeUnit: TimeUnit) {
         val now = now()
         if (lastFetched == null) {
             timestamp = now
-            Log.d("123", "shouldFetch: TRUEEEE")
             return true
         }
         if (now - lastFetched > timeout) {
             timestamp = now
-            Log.d("123", "shouldFetch: TRUEEEEEEEEEEE")
             return true
         }
-        Log.d("123", "shouldFetch: FALSEEEEE")
         return false
     }
 

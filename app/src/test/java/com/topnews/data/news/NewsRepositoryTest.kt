@@ -11,6 +11,8 @@ import com.topnews.data.db.AppDatabase
 import com.topnews.data.network.Resource
 import com.topnews.data.user.CountryType
 import com.topnews.data.user.NewsCategory
+import com.topnews.util.mock
+import com.topnews.util.successCall
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -68,11 +70,3 @@ class NewsRepositoryTest {
 
     }
 }
-
-fun <T : Any> successCall(data: T) = createCall(Response.success(data))
-
-fun <T : Any> createCall(response: Response<T>) = MutableLiveData<ApiResponse<T>>().apply {
-    value = ApiResponse.create(response)
-} as LiveData<ApiResponse<T>>
-
-inline fun <reified T> mock(): T = Mockito.mock(T::class.java)
