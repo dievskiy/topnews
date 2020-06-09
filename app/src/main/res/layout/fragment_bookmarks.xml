@@ -20,15 +20,15 @@
             style="@style/BaseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:text="@string/no_bookmarks"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:visibility="@{viewmodel.articles.empty ? View.VISIBLE : View.GONE}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleBy="@{viewmodel.articles.empty}" />
 
 
         <androidx.recyclerview.widget.RecyclerView

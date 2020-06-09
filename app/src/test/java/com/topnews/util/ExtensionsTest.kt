@@ -1,7 +1,11 @@
 package com.topnews.util
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.topnews.api.ApiResponse
+import org.mockito.Mockito
+import retrofit2.Response
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
@@ -39,4 +43,29 @@ fun <T> LiveData<T>.getOrAwaitValue(
 
     @Suppress("UNCHECKED_CAST")
     return data as T
+}
+
+
+fun <T : Any> successCall(data: T) = createCall(Response.success(data))
+
+fun <T : Any> createCall(response: Response<T>) = MutableLiveData<ApiResponse<T>>().apply {
+    value = ApiResponse.create(response)
+} as LiveData<ApiResponse<T>>
+
+inline fun <reified T> mock(): T = Mockito.mock(T::class.java)
+
+
+fun <T> LiveData<T>.blockingObserve(): T? {
+    var value: T? = null
+    val latch = CountDownLatch(1)
+
+    val observer = Observer<T> { t ->
+        value = t
+        latch.countDown()
+    }
+
+    observeForever(observer)
+
+    latch.await(2, TimeUnit.SECONDS)
+    return value
 }

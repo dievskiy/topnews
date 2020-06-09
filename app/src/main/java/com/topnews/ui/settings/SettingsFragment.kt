@@ -12,6 +12,8 @@ import androidx.navigation.navGraphViewModels
 import com.bumptech.glide.Glide
 import com.topnews.R
 import com.topnews.databinding.FragmentSettingsBinding
+import com.topnews.ui.about.AboutActivity
+import com.topnews.ui.intro.IntroductionActivity
 import com.topnews.utils.toast
 import dagger.android.support.DaggerFragment
 import kotlinx.coroutines.CoroutineScope
@@ -50,15 +52,29 @@ class SettingsFragment : DaggerFragment() {
 
         binding.textPrivacyPolicy.setOnClickListener(privacyListener)
         binding.textClearCache.setOnClickListener(cacheListener)
+        binding.textChangeCategories.setOnClickListener(changeCategoriesListener)
+        binding.textChangeCountry.setOnClickListener(changeCategoriesListener)
+        binding.textAbout.setOnClickListener(aboutListener)
 
+    }
+
+    private val changeCategoriesListener = View.OnClickListener {
+        val intent = Intent(requireContext(), IntroductionActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+    }
+
+    private val aboutListener = View.OnClickListener {
+        val intent = Intent(requireContext(), AboutActivity::class.java)
+        startActivity(intent)
     }
 
     private val privacyListener = View.OnClickListener {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = (Uri.parse(URL_PRIVACY_POLICY))
         startActivity(intent)
-
     }
+
     private val cacheListener = View.OnClickListener {
         CoroutineScope(Dispatchers.Default).launch {
             Glide.get(requireContext()).clearDiskCache()

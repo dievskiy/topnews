@@ -94,6 +94,7 @@ dependencies {
     // room
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
 
     // worker
@@ -118,6 +119,8 @@ dependencies {
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.gsonConverterVersion"
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
     // Testing dependencies
     testImplementation 'junit:junit:4.12'

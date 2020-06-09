@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.topnews.ui.intro.IntroViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.intro.CategoriesFragment">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/Intro.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="@string/intro_interested"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/BaseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/max_2"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/categories_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/categories_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="70dp"
+            app:layout_constraintBottom_toTopOf="@+id/next"
+            app:layout_constraintEnd_toEndOf="@id/guideline4"
+            app:layout_constraintStart_toStartOf="@id/guideline3"
+            app:layout_constraintTop_toBottomOf="@id/textView2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_technology"
+                style="@style/BaseMaterialButton.Rounded.Intro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/technology"
+                app:layout_constraintEnd_toStartOf="@+id/button_business"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_business"
+                style="@style/BaseMaterialButton.Rounded.Intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/business"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_general"
+                style="@style/BaseMaterialButton.Rounded.Intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/general"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_technology" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_entertaiment"
+                style="@style/BaseMaterialButton.Rounded.Intro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/entertainment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_general"
+                app:layout_constraintTop_toBottomOf="@+id/button_technology" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_science"
+                style="@style/BaseMaterialButton.Rounded.Intro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/science"
+                app:layout_constraintEnd_toStartOf="@+id/button_health"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_general" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_health"
+                style="@style/BaseMaterialButton.Rounded.Intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@string/health"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_general" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_sports"
+                style="@style/BaseMaterialButton.Rounded.Intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sports"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_science" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next"
+            style="@style/BaseMaterialButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/next"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:enabledCategories="@{viewmodel.chosenCategories}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

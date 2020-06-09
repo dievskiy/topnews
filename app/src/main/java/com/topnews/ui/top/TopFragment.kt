@@ -1,4 +1,4 @@
-package com.topnews.ui.favourites
+package com.topnews.ui.top
 
 import android.content.Intent
 import android.os.Bundle
@@ -21,7 +21,6 @@ class TopFragment : DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-//    private lateinit var viewModel: FavouritesViewModel
 
     private val viewModel: TopViewModel by navGraphViewModels(R.id.mobile_navigation) {
         viewModelFactory
@@ -66,8 +65,6 @@ class TopFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewModel = viewModelProvider(viewModelFactory)
-
         binding.viewmodel = viewModel
         binding.articlesRv.adapter = adapter
 

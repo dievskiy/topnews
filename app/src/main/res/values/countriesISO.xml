@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="countries">
+        <item>United Arab Emirates</item>
+        <item>Argentina</item>
+        <item>Austria</item>
+        <item>Australia</item>
+        <item>Belgium</item>
+        <item>Bulgaria</item>
+        <item>Brazil</item>
+        <item>Canada</item>
+        <item>Switzerland</item>
+        <item>China</item>
+        <item>Colombia</item>
+        <item>Cuba</item>
+        <item>Czechia</item>
+        <item>Denmark</item>
+        <item>Egypt</item>
+        <item>France</item>
+        <item>United-Kingdom</item>
+        <item>Greece</item>
+        <item>Hong Kong</item>
+        <item>Hungary</item>
+        <item>Indonesia</item>
+        <item>Ireland</item>
+        <item>Israel</item>
+        <item>India</item>
+        <item>Italia</item>
+        <item>Japan</item>
+        <item>Korea</item>
+        <item>Lithuania</item>
+        <item>Latvia</item>
+        <item>Morocco</item>
+        <item>Mexico</item>
+        <item>Malaysia</item>
+        <item>Nigeria</item>
+        <item>Netherlands</item>
+        <item>Norway</item>
+        <item>New Zealand</item>
+        <item>Philippines</item>
+        <item>Poland</item>
+        <item>Portugal</item>
+        <item>Romania</item>
+        <item>Serbia</item>
+        <item>Russia</item>
+        <item>Saudi Arabia</item>
+        <item>Sweden</item>
+        <item>Singapore</item>
+        <item>Slovenia</item>
+        <item>Slovakia</item>
+        <item>Thailand</item>
+        <item>Turkey</item>
+        <item>Taiwan</item>
+        <item>Ukraine</item>
+        <item>United States of America</item>
+        <item>Venezuela</item>
+        <item>South Africa</item>
+    </string-array>
+
+    <string-array name="about_names">
+        <item>Glosbe Animation / Lottie</item>
+        <item>Walking animation / Lottie</item>
+    </string-array>
+    <string-array name="about_links">
+        <item>https://lottiefiles.com/1055-world-locations</item>
+        <item>https://lottiefiles.com/9711-payment-from-illustration-animation</item>
+    </string-array>
+</resources>

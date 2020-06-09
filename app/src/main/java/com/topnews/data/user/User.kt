@@ -13,7 +13,7 @@ import com.topnews.data.db.UserTypeConverter
  */
 @TypeConverters(UserTypeConverter::class)
 @Entity(primaryKeys = ["id"])
-class User(
+data class User(
     @ColumnInfo(name = "id")
     val userId: Int,
     @ColumnInfo(name = "country")

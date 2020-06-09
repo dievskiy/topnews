@@ -1,4 +1,4 @@
-package com.topnews.ui.favourites
+package com.topnews.ui.top
 
 import androidx.lifecycle.ViewModel
 import com.topnews.di.other.ChildFragmentScoped

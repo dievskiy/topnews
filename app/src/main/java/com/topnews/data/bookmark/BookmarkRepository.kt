@@ -14,5 +14,4 @@ class BookmarkRepository @Inject constructor(private val articleDao: ArticleDao)
 
     fun loadBookmarks() = articleDao.loadNews()
 
-
 }

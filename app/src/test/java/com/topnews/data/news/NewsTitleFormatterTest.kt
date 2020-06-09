@@ -1,5 +1,8 @@
 package com.topnews.data.news
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 import org.hamcrest.Matchers.*
 import org.junit.Test
 
@@ -29,4 +32,5 @@ class NewsTitleFormatterTest {
         assertThat(titleFormatted3, `is`(not(title3)))
         assertThat(titleFormatted3, not(containsString(" — BBC.com")))
     }
+
 }

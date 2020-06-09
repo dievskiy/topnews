@@ -7,13 +7,13 @@
 
         <variable
             name="viewmodel"
-            type="com.topnews.ui.favourites.TopViewModel" />
+            type="com.topnews.ui.top.TopViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.favourites.TopFragment">
+        tools:context=".ui.top.TopFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/articles_rv"

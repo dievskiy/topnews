@@ -25,24 +25,24 @@ class WebActivity : DaggerAppCompatActivity() {
 
     private lateinit var viewModel: WebActivityViewModel
 
-    private var article: News.Article? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web)
 
         viewModel = viewModelProvider(viewModelFactory)
 
-        val intent = intent
-        article = intent.getSerializableExtra(INTENT_EXTRAS_ARTICLE) as News.Article?
-
         // set toolbar
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        loadPage()
-        setArticle()
+        val intent = intent
+        val article = intent.getSerializableExtra(INTENT_EXTRAS_ARTICLE) as News.Article?
+
+        article?.let {
+            loadPage(it)
+            setArticle(it)
+        }
     }
 
     private fun setToolbarIconObserver() {
@@ -55,8 +55,8 @@ class WebActivity : DaggerAppCompatActivity() {
         })
     }
 
-    private fun setArticle() {
-        article?.let { viewModel.checkIfArticleSaved(it) }
+    private fun setArticle(article: News.Article) {
+        viewModel.checkIfArticleSaved(article)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -65,12 +65,11 @@ class WebActivity : DaggerAppCompatActivity() {
         return true
     }
 
-    private fun loadPage() {
-        article?.run {
-            if (url.isNotEmpty()) {
-                val webView = findViewById<BaseWebView>(R.id.webView)
-                webView.loadUrl(url)
-            }
+    private fun loadPage(article: News.Article) {
+        val url = article.url
+        if (url.isNotEmpty()) {
+            val webView = findViewById<BaseWebView>(R.id.webView)
+            webView.loadUrl(url)
         }
     }
 

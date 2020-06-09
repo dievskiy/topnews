@@ -50,11 +50,5 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideSPEditor(sharedPreferences: SharedPreferences): SharedPreferences.Editor {
-        return sharedPreferences.edit()
-    }
-
-    @Singleton
-    @Provides
     fun providesAppDatabase(context: Context): AppDatabase = AppDatabase.buildDatabase(context)
 }

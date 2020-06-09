@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Top News</string>
-    <string name="title_favourites">Favourites</string>
+    <string name="title_favourites">Bookmarks</string>
     <string name="title_top">Top</string>
     <string name="title_settings">Settings</string>
     <string name="desc_news_thumbnail">News thumbnail</string>
@@ -12,4 +12,23 @@
     <string name="other">Other</string>
     <string name="search">Search</string>
     <string name="cleared">Cleared!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Next</string>
+    <string name="choose_your_country">Choose your country</string>
+    <string name="country">Country</string>
+    <string name="meaningless_pic">meaningless pic</string>
+    <string name="prev">Prev</string>
+    <string name="intro_interested">What you are interested in?</string>
+    <string name="technology">technology</string>
+    <string name="business">business</string>
+    <string name="general">General</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="science">Science</string>
+    <string name="sports">Sports</string>
+    <string name="health">Health</string>
+    <string name="intro_set">You\'re all set!</string>
+    <string name="max_2">max. 2</string>
+    <string name="continue_">Continue</string>
+    <string name="intro_privacy">By clicking continue, \n you agree to our privacy policy</string>
+    <string name="about">About</string>
 </resources>
