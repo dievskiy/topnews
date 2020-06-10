@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navGraphViewModels
 import com.bumptech.glide.Glide
@@ -23,7 +22,6 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class SettingsFragment : DaggerFragment() {
-
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -85,7 +83,7 @@ class SettingsFragment : DaggerFragment() {
     }
 
     companion object {
-        const val URL_PRIVACY_POLICY = "https://google.com"
+        const val URL_PRIVACY_POLICY = "https://sites.google.com/view/topnews-app/"
     }
 
 }

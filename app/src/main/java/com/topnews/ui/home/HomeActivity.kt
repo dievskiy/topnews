@@ -32,28 +32,28 @@ class HomeActivity : DaggerAppCompatActivity() {
         if (!sharedPrefs.getBoolean(PrivacyFragment.SP_INTRO_NAME, false)) {
             val intent = Intent(this, IntroductionActivity::class.java)
             startActivity(intent)
-        }
+        } else {
+            viewModel = viewModelProvider(viewModelFactory)
 
-        viewModel = viewModelProvider(viewModelFactory)
+            setContentView(R.layout.activity_home)
+            val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        setContentView(R.layout.activity_home)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+            val navController = findNavController(R.id.nav_host_fragment)
 
-        val navController = findNavController(R.id.nav_host_fragment)
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_top,
-                R.id.navigation_bookmarks,
-                R.id.navigation_settings
+            val appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.navigation_top,
+                    R.id.navigation_bookmarks,
+                    R.id.navigation_settings
+                )
             )
-        )
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setupWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+            val toolbar = findViewById<Toolbar>(R.id.toolbar)
+            toolbar.setupWithNavController(navController, appBarConfiguration)
+            navView.setupWithNavController(navController)
 
-        navView.setOnNavigationItemReselectedListener {
-            // do nothing
+            navView.setOnNavigationItemReselectedListener {
+                // do nothing
+            }
         }
     }
 }

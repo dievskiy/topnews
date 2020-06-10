@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import kotlin.random.Random
 
 /**
  * For Activities, allows declarations like
@@ -50,3 +51,10 @@ inline fun <reified VM : ViewModel> Fragment.parentViewModelProvider(
 
 fun Context.toast(message: String) =
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+
+fun <T> Collection<T>.randomOrNullNotExperimental(random: Random): T? {
+    if (isEmpty())
+        return null
+    return elementAt(random.nextInt(size))
+}

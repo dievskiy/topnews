@@ -1,8 +1,8 @@
 package com.topnews.data.news
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.topnews.AppExecutors
+import com.topnews.api.ApiResponse
 import com.topnews.data.network.NetworkBoundResource
 import com.topnews.api.NewsService
 import com.topnews.data.network.Resource
@@ -20,11 +20,12 @@ import javax.inject.Singleton
 class NewsRepository @Inject constructor(
     private val appExecutors: AppExecutors,
     private val newsDao: NewsDao,
-    private val newsService: NewsService
+    private val newsService: NewsService,
+    private val limitHandler: LimitHandler
 ) {
 
     private val repoListRateLimit =
-        RateLimiter(60 * 8, TimeUnit.MINUTES) // 8 hours
+        RateLimiter(60 * 7, TimeUnit.MINUTES, limitHandler.get()) // 7 hours
 
     fun fetchNews(
         countryType: CountryType,
@@ -40,14 +41,16 @@ class NewsRepository @Inject constructor(
 
             override fun loadFromDb() = newsDao.loadNews()
 
-            override fun createCall() =
-                newsService.fetchFavouritesNews(
+            override fun createCall(): LiveData<ApiResponse<News>> {
+                limitHandler.save()
+                return newsService.fetchFavouritesNews(
                     country = countryType.name,
                     category = category.name
                 )
+            }
 
             override fun onFetchFailed() {
-                repoListRateLimit.reset()
+                limitHandler.reset()
             }
         }.asLiveData()
     }

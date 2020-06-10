@@ -1,6 +1,7 @@
 package com.topnews.di.modules
 
 import com.topnews.data.bookmark.BookmarkRepositoryModule
+import com.topnews.data.news.LimitDelegateModule
 import com.topnews.data.news.NewsFetchRepositoryModule
 import com.topnews.data.user.UserRepositoryModule
 import com.topnews.di.other.ActivityScoped
@@ -35,7 +36,9 @@ abstract class ActivityBindingModule {
         modules = [
             IntroductionActivityModule::class,
             IntroFragmentsModule::class,
-            UserRepositoryModule::class]
+            UserRepositoryModule::class,
+            LimitDelegateModule::class
+        ]
     )
     internal abstract fun introductionActivity(): IntroductionActivity
 
@@ -51,7 +54,8 @@ abstract class ActivityBindingModule {
             // other
             NewsFetchRepositoryModule::class,
             UserRepositoryModule::class,
-            BookmarkRepositoryModule::class
+            BookmarkRepositoryModule::class,
+            LimitDelegateModule::class
         ]
     )
     internal abstract fun homeActivity(): HomeActivity

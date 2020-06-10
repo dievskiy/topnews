@@ -1,5 +1,6 @@
 package com.topnews.data.news
 
+import android.content.SharedPreferences
 import com.topnews.AppExecutors
 import com.topnews.data.db.AppDatabase
 import com.topnews.api.NewsService
@@ -32,9 +33,10 @@ internal class NewsFetchRepositoryModule {
     fun bindFavouritesRepository(
         appDatabase: AppDatabase,
         appExecutors: AppExecutors,
-        newsService: NewsService
+        newsService: NewsService,
+        limitHandler: LimitHandler
     ): NewsRepository {
-        return NewsRepository(appExecutors, appDatabase.newsDao(), newsService)
+        return NewsRepository(appExecutors, appDatabase.newsDao(), newsService, limitHandler)
     }
 
 }

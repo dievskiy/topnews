@@ -14,6 +14,7 @@ import com.topnews.utils.SP_NAME_TAG
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
+import kotlin.random.Random
 
 @Module
 class AppModule {
@@ -24,9 +25,6 @@ class AppModule {
         return RequestOptions()
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .centerCrop()
-//            .optionalCenterCrop()
-//            .placeholder(R.drawable.white_background)
-//            .error(R.drawable.white_background)
     }
 
     @Provides
@@ -46,6 +44,12 @@ class AppModule {
     @Provides
     fun provideSP(application: MainApplication): SharedPreferences {
         return application.getSharedPreferences(SP_NAME_TAG, Context.MODE_PRIVATE)
+    }
+
+    @Singleton
+    @Provides
+    fun provideRandom(): Random {
+        return Random(123)
     }
 
     @Singleton

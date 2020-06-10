@@ -31,4 +31,6 @@
     <string name="continue_">Continue</string>
     <string name="intro_privacy">By clicking continue, \n you agree to our privacy policy</string>
     <string name="about">About</string>
+    <string name="not_configured">Your profile is not configured</string>
+    <string name="configure">Configure</string>
 </resources>

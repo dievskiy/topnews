@@ -18,15 +18,15 @@ package com.topnews.data.network
 
 
 import android.os.SystemClock
-import android.util.Log
+import androidx.collection.ArrayMap
 
 import java.util.concurrent.TimeUnit
 
 /**
  * Utility class that decides whether we should fetch some data or not.
  */
-class RateLimiter(timeout: Int, timeUnit: TimeUnit) {
-    private var timestamp: Long? = null
+class RateLimiter(timeout: Int, timeUnit: TimeUnit, private var timestamp: Long? = null) {
+
     private val timeout = timeUnit.toMillis(timeout.toLong())
 
     @Synchronized
@@ -45,9 +45,4 @@ class RateLimiter(timeout: Int, timeUnit: TimeUnit) {
     }
 
     private fun now() = SystemClock.uptimeMillis()
-
-    @Synchronized
-    fun reset() {
-        timestamp = null
-    }
 }
