@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.topnews.R
+import com.topnews.data.news.LimitHandler
 import com.topnews.data.user.CountryType
 import com.topnews.databinding.FragmentPrivacyBinding
 import com.topnews.ui.home.HomeActivity
@@ -32,6 +33,9 @@ class PrivacyFragment : DaggerFragment(), MovingToNext {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var limitDelegate: LimitHandler
 
     private val viewModel: IntroViewModel by viewModels {
         viewModelFactory
@@ -66,7 +70,10 @@ class PrivacyFragment : DaggerFragment(), MovingToNext {
     }
 
     private fun saveSP() {
-        sharedPreferences.edit().putBoolean(SP_INTRO_NAME, true).apply()
+        limitDelegate.reset()
+        sharedPreferences.edit()
+            .putBoolean(SP_INTRO_NAME, true)
+            .apply()
     }
 
 

@@ -1,17 +1,21 @@
 package com.topnews.ui.top
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.topnews.R
 import com.topnews.data.news.ArticleListAdapter
 import com.topnews.databinding.FragmentTopBinding
+import com.topnews.ui.intro.IntroductionActivity
 import com.topnews.ui.webview.WebActivity
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -67,15 +71,25 @@ class TopFragment : DaggerFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = viewModel
         binding.articlesRv.adapter = adapter
+        binding.configure.setOnClickListener { startIntroduction() }
 
         setUpObservers()
     }
 
+    private fun startIntroduction() {
+        val intent = Intent(requireContext(), IntroductionActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+    }
+
     private fun setUpObservers() {
         viewModel.news.observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it.data?.articles)
+            it.data ?: return@Observer
+            adapter.submitList(it.data.articles)
         })
+
     }
 
 
 }
+
